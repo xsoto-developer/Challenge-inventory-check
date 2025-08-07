@@ -108,7 +108,7 @@ La API proporciona los siguientes endpoints, documentados con Swagger:
               "nombre": "Camiseta",
               "categoria": "Ropa",
               "precio": 25.0,
-              "stock":率先
+              "stock":1
           }
       ]
       ```
@@ -182,67 +182,6 @@ La API está documentada con SpringDoc OpenAPI, accesible en: `http://localhost:
    ```bash
    git clone https://github.com/xsoto-developer/Challenge-inventory-check.git
    ```
-2. Configura el upstream:
-   ```bash
-   git remote add upstream https://github.com/Walmart-Tech-Mexico/Challenge-inventory-check.git
-   ```
-
-### Desarrollo
-1. Crea una rama:
-   ```bash
-   git checkout -b feature/inventory-check
-   ```
-2. Implementa los cambios descritos en este README.
-3. Ejecuta pruebas:
-   ```bash
-   mvn test
-   ```
-
-### Enviar la Solución
-1. Commitea los cambios:
-   ```bash
-   git add .
-   git commit -m "Implementa solución para Reto 02 con Spring Boot y Swagger"
-   git push origin feature/inventory-check
-   ```
-2. Crea un pull request:
-    - Ve a tu fork: `https://github.com/xsoto-developer/Challenge-inventory-check`.
-    - Haz clic en "New Pull Request".
-    - Selecciona la rama `feature/inventory-check` y apunta al repositorio original: `https://github.com/Walmart-Tech-Mexico/Challenge-inventory-check`.
-    - Descripción sugerida del PR:
-      ```
-      Implementación del Reto 02 - Inventario Fantasma con Spring Boot, siguiendo principios SOLID y el patrón Strategy. Incluye endpoints RESTful, documentación Swagger, pruebas unitarias con JUnit 5 y un pipeline CI/CD con GitHub Actions.
-      ```
-
-### CI/CD con GitHub Actions
-Un pipeline simple está configurado en `.github/workflows/ci.yml`:
-- Ejecuta pruebas automáticamente en cada push o pull request.
-- Usa JDK 17 y Maven para construir y probar el proyecto.
-
-**Contenido de `ci.yml`**:
-```yaml
-name: CI Pipeline
-on:
-  push:
-    branches: [ main, feature/* ]
-  pull_request:
-    branches: [ main ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
-      - name: Run tests
-        run: mvn test
-```
-
 ## Instrucciones para Probar
 
 1. Configura el entorno (Java 17, Maven).
@@ -250,23 +189,16 @@ jobs:
    ```bash
    mvn clean install
    ```
-3. Inicia la aplicación:
+3. Ejecuta pruebas:
+   ```bash
+   mvn test
+   ```   
+4. Inicia la aplicación:
    ```bash
    mvn spring-boot:run
    ```
-4. Accede a Swagger: `http://localhost:8080/swagger-ui.html`.
-5. Prueba los endpoints con datos de ejemplo:
+5. Accede a Swagger: `http://localhost:8080/swagger-ui.html`.
+6. Prueba los endpoints con datos de ejemplo:
     - Agrega productos a almacenes.
     - Lista productos.
     - Compara inventarios.
-
-## Conclusión
-
-Esta solución proporciona una implementación robusta, modular y escalable para el Reto 02, cumpliendo con las mejores prácticas de desarrollo. El uso de Spring Boot, principios SOLID, el patrón Strategy, pruebas unitarias y documentación Swagger asegura un código de alta calidad. El flujo de trabajo con GitHub facilita la colaboración y la integración continua.
-
-**Contribuciones**:
-- Crea una nueva rama para mejoras o correcciones.
-- Sigue el mismo flujo de trabajo para enviar pull requests.
-
-**Contacto**:
-Para dudas o sugerencias, contacta al equipo técnico a través del repositorio de GitHub.

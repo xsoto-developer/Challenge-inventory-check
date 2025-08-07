@@ -1,22 +1,3 @@
-//package com.walmarttech.inventory.domain;
-//
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-//import lombok.ToString;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@ToString
-//public class Almacen {
-//    public String id;
-//    public String nombre;
-//    public List<Producto> productos;
-
 package com.walmarttech.inventory.domain;
 
 import lombok.Getter;
@@ -34,10 +15,7 @@ import java.util.List;
             this.nombre = nombre;
             this.productos = new ArrayList<>();
         }
-//
-//        public String getId() { return id; }
-//        public String getNombre() { return nombre; }
-//        public List<Producto> getProductos() { return new ArrayList<>(productos); }
+
         public void agregarProducto(Producto producto) { productos.add(producto); }
 
         @Override
